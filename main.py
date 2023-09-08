@@ -1,16 +1,15 @@
-# This is a sample Python script.
+import tensorflow
+from tensorflow.python.keras import Sequential
+from tensorflow.python.keras.layers import Dense
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+model = Sequential([
+    Dense(units=25, activation='relu'),
+    Dense(units=15, activation='relu'),
+    Dense(units=10, activation='linear')
+])
 
+from tensorflow.python.keras.losses import SparseCategoricalCrossentropy
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+model.compile(loss=SparseCategoricalCrossentropy(from_logits=True))
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# model.fit(X, Y, )
